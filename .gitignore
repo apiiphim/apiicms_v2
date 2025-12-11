@@ -12,7 +12,6 @@ nohup*
 *.log
 .wepycache
 .well-known
-/upload
 node_modules/
 apii
 apii.pub
