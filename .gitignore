@@ -13,6 +13,7 @@ nohup*
 .wepycache
 .well-known
 node_modules/
-apii
-apii.pub
 upload/
+apii
+application/extra/maccms.php
+application/database.php
