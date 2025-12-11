@@ -15,3 +15,4 @@ nohup*
 node_modules/
 apii
 apii.pub
+upload/
