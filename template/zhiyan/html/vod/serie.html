@@ -1,0 +1,58 @@
+<div class="block">
+	<div class="a-tit">
+		<h2>Phim liên quan</h2>
+	</div>
+	<div class="a-con txlswiper" style="display:flex;overflow:hidden">
+	    <div class="swiper-wrapper">
+	    <!--{maccms:vod type="current" num="6" rel="'.$obj['vod_rel_vod'].'" order="desc" by="time"}-->
+        {maccms:vod by="time" num="12" order="desc" by="time" wd="'.substr($obj['vod_name'],0,9).'"}
+		<div class="a-con-inner swiper-slide">
+			<div class="pic" style="aspect-ratio: 16/9;">
+				<a href="{:mac_url_vod_play($vo)}">
+					<img class="lazyload" data-src="{:mac_url_img($vo.vod_pic)}" src="{$maccms.path_tpl}assets/loading.jpg" alt="{$vo.vod_name}">
+					<i class="iconfont icon-bofang bofang"></i>
+				</a>
+			{if condition="$vo.vod_score>5"}<span class="s3">{$vo.vod_score}</span>{/if}
+				<span class="s4">
+	    {if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}Hoàn thành{/if}
+				</span>
+			</div>
+			<span class="s1">
+			    <a href="{:mac_url_vod_play($vo)}" title="{$vo.vod_name}">{$vo.vod_name}</a>
+			</span>
+			{if $vo.vod_class!=''}
+			<span class="s2">
+			    {maccms:foreach name=":explode(',',$vo.vod_class)" id="vo2" key="key2"}
+				<a href="{:mac_url_type($vo.type.type_id,['id'=>$vo['type_id'],'class'=>$vo2],'show')}" title="{$vo2}">{$vo2}</a>
+				{/maccms:foreach}   
+			</span>
+			{/if}
+		</div>
+        {/maccms:vod}
+        </div>
+	</div>
+</div>
+<link rel="stylesheet" href="{$maccms.path_tpl}assets/swiper-bundle.css">
+<script type="text/javascript" src="{$maccms.path_tpl}assets/swiper-bundle.js"></script>
+<script>
+var swiper = new Swiper(".txlswiper", {
+  slidesPerView: 3,
+  spaceBetween: 10,
+  freeMode: true,
+  autoplay:true,
+  breakpoints:{
+      767:{
+          slidesPerView:6,
+          spaceBetween: 15,
+      }
+  }
+});
+var swiper = new Swiper(".ggswiper", {
+    direction: 'vertical',
+	loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    }
+})
+</script>

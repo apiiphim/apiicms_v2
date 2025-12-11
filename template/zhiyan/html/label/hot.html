@@ -1,0 +1,58 @@
+<html lang="vi">
+<head>
+    {include file="public/meta"}
+    <title>Phim được đánh giá cao | {$maccms.site_name}</title>
+    <meta name="keywords" content="tvhay,phim sex, vlxx,rphang, thiendia, mobiblog, xem phim sex, phim xx hay, vnxx, xxvn, xvideos">
+    <meta name="description" content="{$maccms.site_name} chiếu miễn phí phim người lớn">
+    {include file="public/include"}
+    {php}require MAC_ROOT_TEMPLATE . 'php/extra.php'{/php}
+</head>
+<body class="body">
+    {include file="public/header"}
+    <main class="main pt50">
+        <div class="container">
+             <section class="banner" style="min-height: 100px;">
+                <div class="banner-inner">
+                    <h1>Phim đánh giá cao(2024-2022)</h1></h1>
+                    <p>Cập nhật "{:get_vodscore_egt9_count()}" phim có đánh giá 9.0 trở lên"</p>
+                </div>
+            </section>
+            <div class="block mt10 mb30">
+                <div class="a-con">
+                {maccms:vod type="20" by="score" num="60" order="desc" year="2024,2023,2022"}
+                    <div class="a-con-inner">
+                        <div class="pic">
+                            <a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}">
+                                <img class="lazyload" data-src="{:mac_url_img($vo.vod_pic)}" src="{$maccms.path_tpl}assets/loading.jpg" alt="{$vo.vod_name}">
+                                <i class="iconfont icon-bofang bofang"></i>
+                            </a>
+                            {if condition="$vo.vod_score>5"}<span class="s3">{$vo.vod_score}</span>{/if}
+                            <span class="s4">
+					    {if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}Hoàn thành{/if}{if date('Y-m-d')==date('Y-m-d',$vo.vod_time)}<b class="tag-new"></b>{/if}</span>
+                            <span class="s5 animate__animated animate__flipInX">
+                                <b class="zy">
+                                    {$vo.vod_actor|mac_default='Không rõ'|mac_url_create='actor'|}</a>
+                                    
+                                </b>
+                                <b class="jj">
+                                    {$vo.vod_blurb}
+                                </b>
+                            </span>
+                        </div>
+                        <span class="s1"><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}">{$vo.vod_name}</a></span>
+                        {if $vo.vod_class!=''}
+                        <span class="s2">
+                           {maccms:foreach name=":explode(',',$vo.vod_class)" id="vo2" key="key2"}
+										<a href="{:mac_url_type($vo.type.type_id,['id'=>$vo['type_id'],'class'=>$vo2],'show')}" title="{$vo2}">{$vo2}</a>
+										{/maccms:foreach}   
+                        </span>
+                        {/if}
+                    </div>
+                {/maccms:vod}
+                </div>
+            </div>
+        </div>
+    </main>
+    {include file="public/footer"}
+</body>
+</html>

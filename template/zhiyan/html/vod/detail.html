@@ -1,0 +1,110 @@
+<html lang="vi">
+<head>
+    {include file="public/meta"}
+    <title>《{$obj.vod_name}》{if $obj.type.type_id==21} Full HD {else/} Hoàn thành {/if} Xem phim - {$obj.vod_year}{maccms:foreach name=":explode(',',$obj.vod_class)" id="vo2" key="key2"}{if $key2 == 0}{$vo2}{/if}{/maccms:foreach}-{$obj.vod_area}{$obj.type.type_name} | {$maccms.site_name}</title>
+    <meta name="keywords" content="Xem phim {$obj.vod_name} full HD miễn phí,{$obj.vod_en},{$obj.vod_year}{$obj.type.type_name}{$obj.vod_name},Xem thông tin diễn viên phim {$obj.vod_name} ,Giới thiệu cốt truyện phim {$obj.vod_name}">
+    <meta name="description" content="{$obj.vod_name} Kịch bản:{$obj.vod_blurb}">
+    {include file="public/include"}
+</head>
+<body class="body">
+    {include file="public/header"}
+    <div class="movbox">
+		<div class="cover" style="background-image: url({:mac_url_img($obj.vod_pic)});"></div>
+		<div class="container pt50">
+			<div class="info">
+				<div class="pic">
+					<a href="{if condition="$obj.vod_play_list"}{:mac_url_vod_play($obj)}{else/}javaScript:;{/if}" title="{$obj.vod_name}">
+						
+						
+						<img class="lazyload" data-src="{:mac_url_img($obj.vod_pic)}" src="{$maccms.path_tpl}assets/loading.jpg" alt="{$obj.vod_name}">
+						
+						</a>{if condition="$obj.vod_score>5"}<span class="vod_score">{$obj.vod_score}</span>{/if}</div>
+				<div class="con">
+					<div class="p1">
+						<h1 class="tit">
+							{$obj.vod_name}
+						</h1>
+						<p class="ftit">
+							{$obj.vod_en}
+						</p>
+						<p class="type">
+							<span>
+							    <a href="{:mac_url_type($obj.type_id,['id'=>$obj['type_id']],'show')}" title="{$obj.type.type_name}">{$obj.type.type_name}</a>
+								<!--<a href="{if$obj.type_1!=''}{:mac_url_type($obj.type_1)}{else}{:mac_url_type($obj.type)}{/if}" title="{if$obj.type_1!=''}{$obj.type_1.type_name}{else}{$obj.type.type_name}{/if}">-->
+								<!--	 {if$obj.type_1!=''}{$obj.type_1.type_name}{else}{$obj.type.type_name}{/if}-->
+								<!--</a>-->
+							</span>
+							{if $obj.vod_class!=''}
+							<span>
+								{maccms:foreach name=":explode(',',$obj.vod_class)" id="vo2" key="key2"}
+								<a href="{:mac_url_type($obj.type.type_id,['id'=>$obj['type_id'],'class'=>$vo2],'show')}" title="{$vo2}">{$vo2}</a>
+								{/maccms:foreach}   
+							</span>
+							{/if}
+							<span>
+								<a href="{:mac_url_type($obj.type.type_id,['id'=>$obj['type_id'],'year'=>$obj['vod_year']],'show')}">
+									{$obj.vod_year|mac_default='Không rõ'}
+								</a>
+							</span>
+							<span>
+                                <a href="{:mac_url_type($obj.type.type_id,['id'=>$obj['type_id'],'area'=>$obj['vod_area']],'show')}">{$obj.vod_area|mac_default='Không rõ'}	</a>
+                            </span>
+						</p>
+						<p class="play">
+						    {if condition="$obj.vod_play_list"}
+							<a href="{:mac_url_vod_play($obj)}" title="Phát ngay {$obj.vod_name}">
+								<i class="iconfont icon-bofang"></i>
+								Xem ngay
+							</a>
+							{else/}
+								<a href="javaScript:;" title="Chưa có nguồn phim">
+								<i class="iconfont icon-bofang"></i>
+								Chưa có nguồn phim
+							</a>
+							{/if}
+						</p>
+					</div>
+					<div class="p2">
+						<p class="daoyan">
+							<span class="name">
+								Đạo diễn:
+							</span>
+				{$obj.vod_director|mac_default='Không rõ'|mac_url_create='director','vod','search'}
+						</p>
+						<p class="zhuyan clamp2">
+							<span class="name">
+								Diễn viên chính:
+							</span>
+						{$obj.vod_actor|mac_default='Không rõ'|mac_url_create='actor','vod','search'}
+						</p>
+						<p class="zhuangtai">
+							<span class="name">
+								Tình trạng:
+							</span>
+				    {if condition="$obj.vod_remarks neq ''"}{$obj.vod_remarks}{elseif condition="$obj.vod_serial gt 0"}第{$obj.vod_serial}集{else /}Hoàn thành{/if}
+						</p>
+						<p class="juqing">
+							<span class="name">
+								Tóm tắt nội dung:
+							</span>
+							<span id="articleText">{$obj.vod_content|mac_filter_html|mac_default='Đang cập nhật'}
+							</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<main class="main">
+		<div class="container">
+		    {include file="vod/like"}
+		</div>
+	</main>
+    <script>
+        $(function () {
+          expandText('#articleText', 100); 
+        });
+     </script>
+    {include file="public/footer"}
+</body>
+</html>

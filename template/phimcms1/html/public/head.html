@@ -1,0 +1,73 @@
+<!--通用页头-->
+<div class="shoutu-header shoutu-pc">
+    <div class="this-header-box flex between">
+        <div class="shoutu-this-left-box flex">
+            <div class="shoutu-logo">
+                <a href="{$maccms.path}" title="{$maccms.site_name}">
+                    <img src="{$maccms.site_logo|mac_url_img}" alt="{$maccms.site_name}" />
+                </a>
+            </div>
+            <div class="shoutu-this-nav-box nav-swiper">
+                <ul class="flex swiper-wrapper">
+                    <li class="swiper-slide shoutu-nav-item {if condition='$maccms.aid eq 1'} current{/if}">
+                        <a class="shoutu-nav-link" title="首页" href="{$maccms.path}">Home</a>
+                    </li>
+                    {maccms:type ids="parent" order="asc" by="sort"}
+                    <li class="swiper-slide shoutu-nav-item {if condition="($vo.type_id eq $GLOBALS['type_id'] || $vo.type_id eq $GLOBALS['type_pid'])"} current{/if}">
+                    <a class="shoutu-nav-link" title="{$vo.type_name}" href="{:mac_url_type($vo)}">{$vo.type_name}</a>
+                    </li>
+                    {/maccms:type}
+                </ul>
+            </div>
+        </div>
+        <div class="shoutu-this-right-box flex">
+            <form class="flex between" name="search" method="get" action="{:mac_url('vod/search')}">
+                <label>
+                    <input class="shoutu-search-input" type="text" name="wd" value="{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}" placeholder="Search for content">
+                </label>
+                <button type="submit" class="shoutu-search-btn fa icon-sousuo"></button>
+            </form>
+            <a href="#" target="_blank" class="shoutu-this-link" title="API guide"><i class="fa icon-boshimao"></i>API guide</a>
+            <!-- <a href="{:mac_url('gbook/index')}"  class="shoutu-this-link" title="求片必应"><i class="fa icon-jurassic"></i>Bing</a> -->
+        </div>
+    </div>
+</div>
+<!--移动端首页头部-->
+{if condition="[head] eq '1'"}
+<div class="shoutu-header shoutu-wap">
+    <div class="shoutu-this-right-box flex">
+        <form class="flex between" name="search" method="get" action="{:mac_url('vod/search')}">
+            <label>
+                <input class="shoutu-search-input" type="text" name="wd" value="{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}" placeholder="Search for content">
+            </label>
+            <button type="submit" class="shoutu-search-btn fa icon-sousuo"></button>
+        </form>
+        <a href="{:mac_url('gbook/index')}" class="shoutu-this-link" title="采集教程"><i class="fa icon-boshimao"></i>教程</a>
+        <a href="{:mac_url('gbook/index')}" class="shoutu-this-link" title="求片必应"><i class="fa icon-jurassic"></i>求片</a>
+    </div>
+    <div class="menu-container nav-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide shoutu-nav-item{if condition='$maccms.aid eq 1'} current nav-dt{/if}">
+                <a class="shoutu-nav-link" title="首页" href="{$maccms.path}">首页</a>
+            </div>
+            {maccms:type ids="parent" order="asc" by="sort"}
+            <div  class="swiper-slide shoutu-nav-item {if condition="($vo.type_id eq $GLOBALS['type_id'] || $vo.type_id eq $GLOBALS['type_pid'])"} current nav-dt{/if}"><a class="shoutu-nav-link" title="{$vo.type_name}" href="{:mac_url_type($vo)}">{$vo.type_name}</a></div >
+        {/maccms:type}
+        </div>
+    </div>
+</div>
+{/if}
+<!--移动端分类，留言页头部-->
+{if condition="[head] eq '2'"}
+<div class="shoutu-hearer-b shoutu-wap">[title]</div>
+{/if}
+<!---->
+{if condition="[head] eq '3'"}
+<div class="shoutu-hearer-c shoutu-wap flex">
+    <div class="this-link fa icon-left" onclick="goBack()"></div>
+    <div class="this-center hide">
+        [title]
+    </div>
+    <div id="share" data-url="" class="this-right fa icon-fen"></div>
+</div>
+{/if}

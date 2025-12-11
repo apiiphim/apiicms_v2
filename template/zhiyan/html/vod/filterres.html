@@ -1,0 +1,38 @@
+<div class="block category-con">
+    <div class="a-tit">
+        <h2><i class="iconfont icon-niu"></i>Lọc kết quả</h2>
+    </div>
+    <div class="a-con">
+        {maccms:vod num="48" paging="yes" pageurl="vod/show" type="current" order="desc" by="time"}
+        <div class="a-con-inner">
+            <div class="pic">
+                <a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}">
+                    <img class="lazyload" data-src="{:mac_url_img($vo.vod_pic)}" src="{$maccms.path_tpl}assets/loading.jpg" alt="{$vo.vod_name}">
+                    <i class="iconfont icon-bofang bofang"></i></a>
+                {if condition="$vo.vod_score>5"}<span class="s3">{$vo.vod_score}</span>{/if}
+                <span class="s4">{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}Hoàn thành{/if}{if date('Y-m-d')==date('Y-m-d',$vo.vod_time)}<b class="tag-new"></b>{/if}</span>
+                <span class="s5 animate__animated animate__flipInX">
+                    {if $vo.vod_actor!=''}
+                   	<b class="zy">
+					{$vo.vod_actor|mac_default='Không rõ'|mac_url_create='actor'|}
+					</b>
+					{/if}
+					{if $vo.vod_blurb!=''}
+					<b class="jj">
+						{$vo.vod_blurb|mac_default='Chưa có'}
+					</b>
+					{/if}
+                </span>
+            </div>
+            <span class="s1"><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}">{$vo.vod_name}</a></span>
+            {if $vo.vod_class!=''}
+            <span class="s2">
+              {maccms:foreach name=":explode(',',$vo.vod_class)" id="vo2" key="key2"}
+										<a href="{:mac_url_type($vo.type.type_id,['id'=>$vo['type_id'],'class'=>$vo2],'show')}" title="{$vo2}">{$vo2}</a>
+										{/maccms:foreach}
+            </span>
+            {/if}
+        </div>
+        {/maccms:vod}
+    </div>
+</div>

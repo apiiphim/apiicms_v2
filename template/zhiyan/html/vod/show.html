@@ -1,0 +1,23 @@
+<html lang="vi">
+<head>
+    {include file="public/meta"}
+    <title>{$param.year}{if condition="$param.by eq time"} cập nhật {elseif condition="$param.by eq hits"} Phổ biến {elseif condition="$param.by eq score"} điểm đánh giá {/if}{$param.area}{$param.class}{$obj.type_name} {$param.class}{$obj.type_name} Xếp hạng. Tổng {$param.page} Trang | {$maccms.site_name}</title>
+    <meta name="keywords" content="{if condition="$param.by eq time"} cập nhật {elseif condition="$param.by eq hits"} Phổ biến {elseif condition="$param.by eq score"} điểm đánh giá {/if}{$param.class}{$obj.type_name} xem trực tuyến,{$param.area}{$param.class}{$obj.type_name} gợi ý, Phổ biến{$param.class}{$obj.type_name}, {$param.class}{$obj.type_name},{$param.class}{$obj.type_name} Danh sách xếp hạng（Tổng {$param.page} trang）" />
+    <meta name="description" content="{$maccms.site_name}(tổng {$param.page} trang) gợi ý {$param.year}{if condition="$param.by eq time"} cập nhật {elseif condition="$param.by eq hits"} Phổ biến {elseif condition="$param.by eq score"} Đánh giá cao {/if}{$param.area}{$param.class}{$obj.type_name}Xem trực tuyến miễn phí, phổ biến hơn{$obj.type_name} tải về {$obj.type_name}. Được người hâm mộ giới thiệu để xem {$param.class}{$obj.type_name} danh sách xếp hạng." />
+    {include file="public/include"}
+</head>
+<body class="body">
+    {include file="public/header"}
+    <main class="main pt50">
+        <div class="container">
+            {include file="vod/screen"}
+            {include file="vod/filterres"}
+            {include file="public/paging"}
+        </div>
+    </main>
+    {include file="public/footer"}
+    <script>
+        $(".mac_total").text('{$__PAGING__.record_total}');
+    </script>
+</body>
+</html>

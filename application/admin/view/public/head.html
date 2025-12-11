@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{$title} - {:lang('admin/public/head/title')}</title>
+    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" href="__STATIC__/layui/macCmsfont/iconfont.css?{$MAC_VERSION}">
+    <link rel="stylesheet" href="__STATIC__/css/admin_style.css?{$MAC_VERSION}">
+    <script type="text/javascript" src="__STATIC__/js/jquery.js"></script>
+    <link rel="stylesheet" href="__STATIC__/css/tailwindcssOutput.css?{$MAC_VERSION}">
+    <script type="text/javascript" src="__STATIC__/layui/layui.js"></script>
+    <script src="__STATIC__/js/preline.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script>
+        var ROOT_PATH="__ROOT__",ADMIN_PATH="{$_SERVER['SCRIPT_NAME']}", MAC_VERSION="v10";
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            function translateChineseText() {
+                const translations = {
+                    '信息': 'Thông tin',
+                    '共': 'Tổng',
+                    '下一页': 'Trang sau',
+                    '上一页': 'Trang trước',
+                    '尾页': 'Trang cuối',
+                    '页': 'trang',
+                    '到第': 'Đến',
+                    '确定': 'Xác nhận',
+                    '条': 'dòng',
+                    '取消': 'Hủy',
+                };
+                
+                function translateNode(node) {
+                    if (node.nodeType === 3) {
+                        let text = node.nodeValue;
+                        let changed = false;
+                        
+                        Object.entries(translations).forEach(([chinese, english]) => {
+                            if (text.includes(chinese)) {
+                                text = text.replace(new RegExp(chinese, 'g'), english);
+                                changed = true;
+                            }
+                        });
+                        
+                        if (changed) {
+                            node.nodeValue = text;
+                        }
+                    } else if (node.nodeType === 1) {
+                        Array.from(node.childNodes).forEach(child => translateNode(child));
+                    }
+                }
+
+                translateNode(document.body);
+            }
+            
+            translateChineseText();
+            
+            setTimeout(translateChineseText, 1000);
+        });
+    </script>
+</head>
+<body>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/include"}
+    <title>{$maccms.site_name}</title>
+    <meta name="keywords" content="{$maccms.site_keywords}" />
+    <meta name="description" content="{$maccms.site_description}" />
+</head>
+<body>
+{include file="public/head" head="1" title="Home"}
+<div class="shoutu-banner">
+    <div class="shoutu-box-width">
+        <div class="this-bj"></div>
+        <div class="this-left"></div>
+        <div class="this-right"></div>
+        <div class="this-title-box">
+            <h2>Free Movie Data Source</h2>
+            <span>Shared database of free adult movies</span>
+        </div>
+        <div class="this-img"></div>
+    </div>
+</div>
+<div class="shoutu-banner-nav">
+    <div class="shoutu-box-width flex">
+        <a>
+            <div class="this-box">
+                <div class="this-xin-shou"></div>
+                <div class="this-right">
+                    <span class="this-title hide">Total Videos</span>
+                    <span class="this-illustrate hide">{:mac_data_count(0,'all','vod')}</span>
+                </div>
+            </div>
+        </a>
+        <a>
+            <div class="this-box">
+                <div class="this-jx"></div>
+                <div class="this-right">
+                    <span class="this-title hide">Updated Today</span>
+                    <span class="this-illustrate hide">{:mac_data_count(0,'today','vod')}</span>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="this-box">
+                <div class="this-cai-ji"></div>
+                <div class="this-right">
+                    <span class="this-title hide">Data API</span>
+                    <span class="this-illustrate hide">Access</span>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="this-box">
+                <div class="this-url"></div>
+                <div class="this-right">
+                    <span class="this-title hide">CMS</span>
+                    <span class="this-illustrate hide">Download and Install XXCMS</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="shoutu-box-width">
+    <div class="shoutu-list-box">
+        <ul>
+            <li>
+                <a class="this-link flex" href="javascript:" title="title">
+                    <div class="this-wap-name" style="font-weight: bold; color: white;">Video Name</div>
+                    <div class="this-wap-time this-time" style="font-weight: bold; color: white;">Update Time</div>
+                </a>
+            </li>
+            {maccms:vod num="20" paging="yes" pageurl="index/index" type="all" order="desc" by="time"}
+            <li>
+                <a class="this-link flex" href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}">
+                    <div class="this-wap-name flex"><p>{$vo.vod_name}</p><i>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}Episode {$vo.vod_serial}{else /}Completed{/if}</i></div>
+                    <div class="this-wap-time this-time">{$vo.vod_time|mk_porn_time}</div>
+                </a>
+            </li>
+            {/maccms:vod}
+        </ul>
+    </div>
+    {include file="public/paging"}
+</div>
+{include file="public/foot" bar="1"}
+</body>
+</html>

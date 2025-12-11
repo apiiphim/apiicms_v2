@@ -1,0 +1,23 @@
+<html lang="vi">
+<head>
+    {include file="public/meta"}
+    <title>“{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}”在线搜索 - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class},{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}在线搜索,{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}搜索结果" />
+    <meta name="description" content="搜索{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}，{$maccms.site_name}找到相关影视作品" />
+    {include file="public/include"}
+</head>
+<body class="body">
+    {include file="public/header"}
+    <main class="main pt50">
+        <div class="container">
+            {include file="vod/searchvodbox"}  
+            {include file="public/paging"}
+        </div>
+    </main>
+    {include file="public/footer"}
+    <script>
+     $(".meatdes_totla").text('{$__PAGING__.record_total}');
+      $(".mac_total").text('{$__PAGING__.record_total}');
+    </script>
+</body>
+</html>

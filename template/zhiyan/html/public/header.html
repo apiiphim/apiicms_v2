@@ -1,0 +1,124 @@
+<header class="header">
+    <div class="container">
+        <div class="logo"><a href="/" title=""><img src="{$maccms.site_logo|mac_url_img}"
+                    alt="" class="animate__animated animate__flash"> </a></div>
+        <div class="search-box">
+            <form action="{:mac_url('vod/search')}" class="vodsearch">
+                <input class="search-input ac_wd search-focus" id="txtKeywords" type="text" name="wd"
+                    autocomplete="off" placeholder="Vui lòng nhập từ khóa" value="{$param.wd}">
+                <button class="search-btn search-go search-focus" type="submit"><i
+                        class="iconfont icon-sousuo"></i></button>
+            </form>
+        </div>
+        <div class="nav">
+            <a href="/" {if condition="$maccms.aid eq 1"}class="active"{/if}><i class="iconfont icon-shouye"></i>Trang chủ</a><span
+                class="space-line-bold"></span>
+				
+			{maccms:type num="10" order="asc" by="sort" ids="parent" mid="1"}
+			<a href="{:mac_url_type($vo)}" title="{$vo.type_name}" >
+			    {switch name="vo.type_id"}
+			    {case value="1"}<i class="iconfont icon-tuijian"></i>{/case}
+                {case value="2"}<i class="iconfont icon-remen"></i>{/case}
+                {case value="3"}<i class="iconfont icon-xihuan"></i>{/case}
+                {case value="4"}<i class="iconfont icon-quanbu"></i>{/case}
+				{case value="5"}<i class="iconfont icon-zuixin"></i>{/case}
+				{case value="6"}<i class="iconfont icon-paihang"></i>{/case}
+				{case value="7"}<i class="iconfont icon-fenxiang"></i>{/case}
+                {/switch}
+			    {$vo.type_name}</a><span
+			    class="space-line-bold"></span>
+			
+			{/maccms:type}		
+				
+				
+            
+				
+            <div class="menu watch-history">
+                <span><i class="iconfont icon-bofang"></i></span>
+                <ul class="menu-ul animate__animated animate__headShake" id="history"></ul>
+                </div>
+            <span class="space-line-bold"></span>
+            <div class="menu">
+                <span><i class="iconfont icon-caidanguanli"></i></span>
+                <ul class="menu-ul animate__animated animate__headShake">
+                    <li>
+                        <a href="/" {if condition="$maccms.aid eq 1"}class="active"{/if}>
+                            <i class="iconfont icon-shouye"></i>
+                            <h2>Trang chủ</h2>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{:mac_url('/tim-kiem/lang/Vietsub')}" title="Phim dịch tiếng việt" {if condition="$maccms.controller_action eq 'Label/new'"}class="active"{/if}>
+                            <i class="iconfont icon-zuixin"></i>
+                            <h2>Phim Vietsub</h2>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{:mac_url('/tim-kiem/lang/Nosub')}" title="Phim không dịch" {if condition="$maccms.controller_action eq 'Label/new'"}class="active"{/if}>
+                            <i class="iconfont icon-zuixin"></i>
+                            <h2>Phim Nosub</h2>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{:mac_url('/danh-muc/10')}" title="Phim không dịch" {if condition="$maccms.controller_action eq 'Label/new'"}class="active"{/if}>
+                            <i class="iconfont icon-zuixin"></i>
+                            <h2>Nhật Bản</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:mac_url('/danh-muc/15')}" title="Phim không dịch" {if condition="$maccms.controller_action eq 'Label/new'"}class="active"{/if}>
+                            <i class="iconfont icon-zuixin"></i>
+                            <h2>Việt Nam</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:mac_url('/danh-muc/8')}" title="Phim không dịch" {if condition="$maccms.controller_action eq 'Label/new'"}class="active"{/if}>
+                            <i class="iconfont icon-zuixin"></i>
+                            <h2>Trung Quốc</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:mac_url('/danh-muc/11')}" title="Phim không dịch" {if condition="$maccms.controller_action eq 'Label/new'"}class="active"{/if}>
+                            <i class="iconfont icon-zuixin"></i>
+                            <h2>Âu - Mỹ</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:mac_url('danh-muc/12')}" title="Phim không dịch" {if condition="$maccms.controller_action eq 'Label/new'"}class="active"{/if}>
+                            <i class="iconfont icon-zuixin"></i>
+                            <h2>Không Che</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:mac_url('/danh-muc/9')}" title="Phim không dịch" {if condition="$maccms.controller_action eq 'Label/new'"}class="active"{/if}>
+                            <i class="iconfont icon-zuixin"></i>
+                            <h2>Phim Lẻ</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:mac_url('label/new')}" title="Tập mới nhất" {if condition="$maccms.controller_action eq 'Label/new'"}class="active"{/if}>
+                            <i class="iconfont icon-zuixin"></i>
+                            <h2>Mới nhất</h2>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="{:mac_url('label/rank')}" title="Danh sách xếp hạng" {if condition="$maccms.controller_action eq 'Label/rank'"}class="active"{/if}{if condition="$maccms.controller_action eq 'Label/rank-week'"}class="active"{/if}{if condition="$maccms.controller_action eq 'Label/rank-month'"}class="active"{/if}>
+                            <i class="iconfont icon-paihang"></i>
+                            <h2>Xếp hạng</h2>
+                        </a>
+                    </li>
+                     <li>
+                        <a class="share" title="Tôi muốn chia sẻ" href="javascript:;" data-clipboard-text="{$maccms.site_url}">
+                            <i class="iconfont icon-fenxiang"></i>
+                            <h2>Chia sẻ</h2>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

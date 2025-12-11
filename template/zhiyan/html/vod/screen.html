@@ -1,0 +1,71 @@
+<div class="block category">
+    {if $obj.type_extend.class||$obj.parent.type_extend.class}
+    <dl>
+        <dt><h2>Kịch bản</h2></dt>
+        <dd>
+            <a {if condition="$param['class'] eq ''"} class="active" {/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>'','order'=>$param['order'],'by'=>$param['by'] ],'show')}">Tất cả</a>
+            {empty name="$obj.type_extend.area"}
+            {maccms:foreach name=":explode(',',$obj.parent.type_extend.class)" id="vo2" key="key2"}
+            <a {if condition="$param['class'] eq $vo2"} class="active" {/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$vo2,'order'=>$param['order'],'by'=>$param['by'] ],'show')}">{$vo2}</a>
+            {/maccms:foreach}
+            {else /}
+            {maccms:foreach name=":explode(',',$obj.type_extend.class)" id="vo2" key="key2"}
+            <a {if condition="$param['class'] eq $vo2"} class="active" {/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$vo2,'order'=>$param['order'],'by'=>$param['by'] ],'show')}">{$vo2}</a>
+            {/maccms:foreach}
+            {/empty}
+        </dd>
+    </dl>
+    {/if}
+    {if $obj.type_extend.area||$obj.parent.type_extend.area}
+    <dl>
+        <dt><h2>Quốc gia</h2></dt>
+        <dd>
+            <a {if condition="$param['area'] eq ''"} class="active" {/if} href="{:mac_url_type($obj,['area'=>'','lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}">Tất cả</a>
+            {empty name="$obj.type_extend.area"}
+            {maccms:foreach name=":explode(',',$obj.parent.type_extend.area)" id="vo2" key="key2"}
+            <a {if condition="$param['area'] eq $vo2"} class="active" {/if} href="{:mac_url_type($obj,['area'=>$vo2,'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}">{$vo2}</a>
+            {/maccms:foreach}
+            {else /}
+            {maccms:foreach name=":explode(',',$obj.type_extend.area)" id="vo2" key="key2"}
+            <a {if condition="$param['area'] eq $vo2"} class="active" {/if} href="{:mac_url_type($obj,['area'=>$vo2,'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}">{$vo2}</a>
+            {/maccms:foreach}
+            {/empty}
+        </dd>
+    </dl>
+    {/if}
+    {if $obj.type_extend.year||$obj.parent.type_extend.year}
+    <dl>
+        <dt><h2>Năm sản xuất</h2></dt>
+        <dd>
+            <a {if condition="$param['year'] eq ''"} class="active"{/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>'','level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}">Tất cả</a>
+            {empty name="$obj.type_extend.year"}
+            {maccms:foreach name=":explode(',',$obj.parent.type_extend.year)" id="vo2" key="key2"}
+            <a {if condition="$param['area'] eq $vo2"} class="active" {/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$vo2,'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}">{$vo2}</a>
+            {/maccms:foreach}
+            {else /}
+            {maccms:foreach name=":explode(',',$obj.type_extend.year)" id="vo2" key="key2"}
+            <a {if condition="$param['year'] eq $vo2"} class="active" {/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$vo2,'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}">{$vo2}</a>
+            {/maccms:foreach}
+            {/empty}
+        </dd>
+    </dl>
+    {/if}
+    <dl>
+        <dt><h2>Sắp xếp A-Z</h2></dt>
+        <dd>
+            <a  {if condition="$param['letter'] eq ''"} class="active"{/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>'','state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}">Tất cả</a>
+            {maccms:foreach name=":explode(',','A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0~9')" id="vo2" key="key2"}
+            <a {if condition="$param['letter'] eq $vo2"} class="active"{/if} {/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$vo2,'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}">{$vo2}</a>
+            {/maccms:foreach}
+        </dd>
+    </dl>
+    <dl>
+        <dt><h2>Thể loại</h2></dt>
+        <dd>
+            <a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>'time' ],'show')}" class="order {if condition="$param.by eq '' || $param.by eq 'time'"}active{/if}">Theo thời gian</a>
+            <a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>'hits' ],'show')}" class="order {if condition="$param.by eq 'hits'"}active{/if}">Theo mức độ phổ biến</a>
+            <a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>'score' ],'show')}" class="order {if condition="$param.by eq 'score'"}active{/if}">Theo đánh giá</a>
+        </dd>
+    </dl>
+    <p>Đang hiển thị <span class="active mac_total"></span> phim trực tuyến miễn phí</p>
+</div>

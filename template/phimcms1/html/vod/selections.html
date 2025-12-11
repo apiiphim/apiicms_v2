@@ -1,0 +1,43 @@
+{php}
+function dd_url($str){
+    $arr = explode('#', $str);
+    foreach ($arr as &$value) {
+        $value = substr($value, strpos($value, '$') + 1);
+    }
+    return implode('#', $arr);
+}
+{/php}
+<style>
+.this-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+</style>
+{maccms:foreach name="obj.vod_play_list" id="vo"}
+<div class="shoutu-selections">
+    <div class="this-title flex between">
+        <span class="this-show">{$vo.player_info.show}</span>
+        <span class="this-tip">{$vo.player_info.tip|mac_filter_html}</span>
+    </div>
+    <div class="this-list">
+        {maccms:foreach name="vo.urls" id="vo2" key="key2"}
+        <div class="this-li">
+            <div class="flex">
+                <span class="this-name">{$vo2.name}</span>
+                <span class="this-url this-url2 shoutu-pc hide">{$vo2.name}${$vo2.url}</span>
+                <a class="this-link" href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}"><i class="fa icon-vod"></i>Watch now</a>
+            </div>
+            <span class="this-url2 shoutu-wap hide">{$vo2.name}${$vo2.url}</span>
+        </div>
+        {/maccms:foreach}
+    </div>
+    <div class="this-bottom flex between">
+        <div class="flex">
+            <span class="this-all"><i class="fa icon-select"></i><em class="shoutu-pc">Select all</em></span>
+            <button class="copy-all this-bnt" data-txt="{$vo.url}"><em class="shoutu-pc">Copy link and name</em><em class="shoutu-wap">copy</em></button>
+            <button class="copy-url this-bnt shoutu-pc" data-txt="{:dd_url($vo.url)}">Copy link</button>
+        </div>
+        <span class="this-bottom-tip">Tip: Click on the link to copy</span>
+    </div>
+</div>
+{/maccms:foreach}

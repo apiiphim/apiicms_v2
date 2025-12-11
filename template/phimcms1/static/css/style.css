@@ -1,0 +1,2091 @@
+@charset "UTF-8";
+/* ----------------------------------
+  框架：首涂
+  作者：首涂主题
+----------------------------------*/
+body {
+    background-color: #000;
+    color: #cb9604;
+    font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1;
+}
+div, dl, dt, dd, form, h1, h2, h3, h4, h5, h6, img, ol, ul, li, table, th, td, p, span, a {
+    border: 0;
+    border-radius: 10px; 
+}
+ol, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-radius: 10px;
+}
+a {
+    color: #cb9604;
+    background-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+}
+.text-open, .tim-bnt, .vod-detail-share, .collection, .public-list-box, .so-home, .web-so-btn {
+    -webkit-tap-highlight-color: transparent;
+}
+a, a:link, a:visited, a:active, a:hover, button {
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:focus {
+    text-decoration: none;
+}
+*, ::after, ::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+}
+input, button, select, textarea {
+    border: 0;
+    background: 0 0;
+    border-radius: 10px;
+    outline: medium none;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    color: #cb9604;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+    border: none;
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+    border-radius: 10px;
+}
+i, em {
+    font-style: inherit;
+}
+
+/**
+图标
+**/
+@font-face {
+    font-family: 'iconfont';  /* Project id 4393949 */
+    src: url('//at.alicdn.com/t/c/font_4393949_w5az1zc6lnd.woff2?t=1704021607099') format('woff2'),
+    url('//at.alicdn.com/t/c/font_4393949_w5az1zc6lnd.woff?t=1704021607099') format('woff'),
+    url('//at.alicdn.com/t/c/font_4393949_w5az1zc6lnd.ttf?t=1704021607099') format('truetype');
+}
+.fa {
+    font-family: iconfont !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-jurassic:before {
+    content: "\e69d";
+}
+.icon-boshimao:before {
+    content: "\e7cf";
+}
+.icon-sousuo:before {
+    content: "\e6d5";
+}
+.icon-jiantou:before {
+    content: "\e65d";
+}
+.icon-left:before {
+    content: "\e601";
+}
+.icon-right:before {
+    content: "\e600";
+}
+.icon-index:before {
+    content: "\e61a";
+}
+.icon-type:before {
+    content: "\e614";
+}
+.icon-art:before {
+    content: "\e72d";
+}
+.icon-fenxiang:before {
+    content: "\e69c";
+}
+.icon-vod:before {
+    content: "\e64a";
+}
+.icon-select:before {
+    content: "\e625";
+}
+.icon-fen:before {
+    content: "\e606";
+}
+.icon-close:before {
+    content: "\eaf2";
+}
+
+/*----------------
+swiper插件
+----------------*/
+.swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    background-color: #000;
+    border-radius: 10px;
+}
+.swiper-container-vertical>.swiper-wrapper {
+    flex-direction: column;
+}
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+.swiper-container-android .swiper-slide, .swiper-wrapper {
+    transform: translate3d(0,0,0);
+}
+.swiper-container-multirow>.swiper-wrapper {
+    flex-wrap: wrap;
+}
+.swiper-container-multirow-column>.swiper-wrapper {
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.swiper-container-free-mode>.swiper-wrapper {
+    transition-timing-function: ease-out;
+    margin: 0 auto;
+}
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    /* background-color: #1a1a1a; */
+    border-radius: 10px;
+}
+.swiper-slide-invisible-blank {
+    visibility: hidden;
+}
+.swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
+    height: auto;
+}
+.swiper-container-autoheight .swiper-wrapper {
+    align-items: flex-start;
+    transition-property: transform, height;
+}
+.swiper-container-3d {
+    perspective: 1200px;
+}
+.swiper-container-3d .swiper-cube-shadow, .swiper-container-3d .swiper-slide, .swiper-container-3d .swiper-slide-shadow-bottom, .swiper-container-3d .swiper-slide-shadow-left, .swiper-container-3d .swiper-slide-shadow-right, .swiper-container-3d .swiper-slide-shadow-top, .swiper-container-3d .swiper-wrapper {
+    transform-style: preserve-3d;
+}
+.swiper-container-3d .swiper-slide-shadow-bottom, .swiper-container-3d .swiper-slide-shadow-left, .swiper-container-3d .swiper-slide-shadow-right, .swiper-container-3d .swiper-slide-shadow-top {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+.swiper-container-3d .swiper-slide-shadow-left {
+    background-image: linear-gradient(to left, rgba(0,0,0,.5), rgba(0,0,0,0));
+}
+.swiper-container-3d .swiper-slide-shadow-right {
+    background-image: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,0));
+}
+.swiper-container-3d .swiper-slide-shadow-top {
+    background-image: linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,0));
+}
+.swiper-container-3d .swiper-slide-shadow-bottom {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,0));
+}
+.swiper-container-css-mode>.swiper-wrapper {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.swiper-container-css-mode>.swiper-wrapper::-webkit-scrollbar {
+    display: none;
+}
+.swiper-container-css-mode>.swiper-wrapper>.swiper-slide {
+    scroll-snap-align: start start;
+}
+.swiper-container-horizontal.swiper-container-css-mode>.swiper-wrapper {
+    scroll-snap-type: x mandatory;
+}
+.swiper-container-vertical.swiper-container-css-mode>.swiper-wrapper {
+    scroll-snap-type: y mandatory;
+}
+.swiper-pagination {
+    position: absolute;
+    right: 15px;
+    bottom: 30px;
+    z-index: 2;
+}
+.swiper-pagination-bullet {
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    background: hsla(0,0%,100%,.87);
+    border-radius: 4px;
+    opacity: .6;
+    margin: 0 1px;
+}
+.swiper-pagination-bullet-active {
+    background: #cb9604;
+    width: 10px;
+    opacity: .9;
+}
+.theme1 .slide-time-img {
+    width: 120%;
+    height: 120%;
+    margin-left: -10%;
+    margin-top: -10%;
+}
+.slide-time-img {
+    -webkit-filter: blur(80px);
+    filter: blur(80px);
+}
+.swiper-pointer-events {
+    touch-action: pan-y;
+}
+.swiper-pointer-events.swiper-vertical {
+    touch-action: pan-x;
+}
+.swiper-vertical.swiper-css-mode>.swiper-wrapper {
+    scroll-snap-type: y mandatory;
+}
+.swiper-vertical>.swiper-wrapper {
+    flex-direction: column;
+}
+.swiper-android .swiper-slide, .swiper-wrapper {
+    transform: translate3d(0,0,0);
+}
+
+/**
+复用样式
+**/
+.shoutu-box-width {
+    width: 1232px;
+    margin: auto;
+}
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.between {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.around {
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+.wrap {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.hide {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/**
+页头
+**/
+.shoutu-header {
+    position: relative;
+    z-index: 99;
+    min-width: 1232px;
+    padding: 0 20px;
+    height: 62px;
+    line-height: 62px;
+    opacity: 1;
+    background: #1a1a1a;
+    border-bottom: 1px solid #cb9604;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    border-radius: 10px;
+}
+.shoutu-header .this-header-box {
+    max-width: 1300px;
+    margin: auto;
+}
+.shoutu-header a {
+    font-size: 15px;
+    font-weight: 700;
+    color: #cb9604; 
+}
+.shoutu-header a.active, 
+.shoutu-header a:hover {
+    color: #ffffff; 
+}
+.shoutu-header .shoutu-logo {
+    height: 30px;
+    width: auto;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-right: 20px;
+}
+.shoutu-header .shoutu-logo img {
+    height: 100%;
+    width: auto;
+    border-radius: 10px;
+}
+.shoutu-header .shoutu-this-nav-box {
+    width: 699px;
+    overflow: hidden;
+    height: 100%;
+}
+.shoutu-header .shoutu-this-nav-box .shoutu-nav-item {
+    width: auto;
+    margin: 0 14px;
+}
+.shoutu-header .shoutu-this-right-box form {
+    width: 207px;
+    height: 38px;
+    line-height: 38px;
+    background: #000;
+    border: 1px solid #cb9604;
+    margin-top: 12px;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+.shoutu-header .shoutu-this-link {
+    margin-left: 30px;
+}
+.shoutu-header .shoutu-this-link .fa {
+    margin-right: 6px;
+}
+/**
+页头移动端
+**/
+.shoutu-wap {
+    display: none !important;
+}
+
+
+/**
+页脚
+**/
+.shoutu-foot {
+    width: 100%;
+    margin-top: 10px;
+    background: #1a1a1a;
+    border-top: 1px solid #cb9604;
+    border-radius: 10px;
+}
+.shoutu-foot .this-top {
+    margin-top: 70px;
+}
+.shoutu-foot .this-left {
+    width: 60%;
+}
+.shoutu-foot .this-right {
+    width: 40%;
+}
+.shoutu-foot .this-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #cb9604;
+    text-align: left;
+    margin-bottom: 30px;
+}
+.shoutu-foot .this-top a {
+    opacity: .7;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #cb9604; 
+    margin-right: 48px;
+}
+.shoutu-foot .this-bottom {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #cb9604; 
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+/**
+分页
+**/
+.shoutu-page {
+    background: #000; 
+    border: 1px solid #cb9604; 
+    align-items: center;
+    padding: 9px 8px 9px 8px;
+    font-size: 14px;
+    font-weight: 400;
+    height: 40px;
+    line-height: 40px;
+    justify-content: center;
+    border-radius: 10px; 
+}
+.shoutu-page .this-list {
+    margin: 0 20px;
+}
+.shoutu-page .page-link {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    margin: 0 6px;
+    border-radius: 10px; 
+    background: #1a1a1a; 
+    color: #cb9604; 
+}
+.shoutu-page .page-link.ho {
+    border: 1px solid #cb9604; 
+}
+.shoutu-page input {
+    width: 50px;
+    height: 32px;
+    padding: 10px;
+    background: #000;
+    border: 1px solid #cb9604;
+    border-radius: 10px;
+    color: #cb9604;
+}
+
+/**
+banner
+**/
+.shoutu-banner {
+    position: relative;
+    height: 350px;
+    opacity: 1;
+    background: #000; 
+    border-radius: 10px; 
+}
+.shoutu-banner .this-bj {
+    /* background-image: url(../img/banner.jpg); */
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    border-radius: 10px; 
+}
+.shoutu-banner .shoutu-box-width {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    overflow: revert;
+}
+.shoutu-banner .this-title-box {
+    position: absolute;
+    left: 0;
+    top: 80px;
+    z-index: 22;
+}
+.shoutu-banner .this-title-box h2 {
+    position: relative;
+    width: auto;
+    height: 100px;
+    z-index: 22;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 60px;
+    text-align: left;
+    vertical-align: top;
+    background: linear-gradient(to right, #ffffff, #d84c6d, #cf3a46, #ffffff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.shoutu-banner .this-title-box span {
+    position: relative;
+    z-index: 22;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 23px;
+    color: #cb9604; 
+    text-align: left;
+    vertical-align: top;
+}
+.shoutu-banner .this-left {
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    width: 300px;
+    height: 100%;
+    background-image: linear-gradient(270deg, rgba(22,22,26,0), #000); 
+    border-radius: 10px; 
+}
+.shoutu-banner .this-right {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    width: 300px;
+    height: 100%;
+    background-image: linear-gradient(90deg, rgba(22,22,26,0), #000); 
+    border-radius: 10px; 
+}
+.shoutu-banner .this-bnt {
+    margin-top: 50px;
+}
+.shoutu-banner .this-qq-bnt, .shoutu-banner .this-qq-tg {
+    font-weight: 700;
+    display: block;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+}
+.shoutu-banner .this-qq-bnt {
+    position: relative;
+    overflow: hidden;
+    width: 178px;
+    background: linear-gradient(90deg, #cb9604 0, #d4af37 100%); 
+    box-shadow: 6px 8px 12px rgba(96,159,253,.12);
+    color: #000; 
+}
+.shoutu-banner .this-qq-bnt::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+.shoutu-banner .this-qq-bnt:hover::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+}
+.shoutu-banner .this-qq-tg {
+    margin-left: 20px;
+    width: 224px;
+    background: linear-gradient(135deg, rgba(255,255,255,.8) 0, #f4f6f9 100%);
+    border: 1px solid #fff;
+    box-shadow: 6px 8px 12px rgba(96,159,253,.12);
+}
+.shoutu-banner .this-qq-tg .fa {
+    transition: all 0.3s ease;
+    background-color: #cb9604; 
+    color: #000; 
+    font-size: 14px;
+    margin-left: 10px;
+    border-radius: 50px;
+    padding: 3px;
+}
+.shoutu-banner .this-qq-tg:hover .fa {
+    margin-left: 15px;
+}
+
+.shoutu-banner .this-img {
+    background-image: url(../img/banner-icon.png);
+    position: absolute;
+    top: 12px;
+    right: 0;
+    z-index: 21;
+    width: 372px;
+    height: 372px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.shoutu-banner-nav {
+    position: relative;
+    z-index: 23;
+    margin-top: -50px;
+}
+.shoutu-banner-nav .shoutu-box-width {
+    overflow: revert;
+    justify-content: space-between;
+}
+.shoutu-banner-nav a {
+    background: #000;
+    border: 1px solid #fff;
+    box-shadow: 5px 16px 32px rgba(0,82,217,.12);
+    width: 293px;
+    height: 96px;
+    display: block;
+    border-radius: 10px; 
+}
+.shoutu-banner-nav .this-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(25px);
+    border-radius: 10px; 
+}
+.shoutu-banner-nav .this-xin-shou, .shoutu-banner-nav .this-jx, .shoutu-banner-nav .this-cai-ji, .shoutu-banner-nav .this-url {
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 20px;
+    top: 26px;
+    width: 45px;
+    height: 45px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px; 
+}
+.shoutu-banner-nav .this-box:hover .this-xin-shou, .shoutu-banner-nav .this-box:hover .this-jx, .shoutu-banner-nav .this-box:hover .this-cai-ji, .shoutu-banner-nav .this-box:hover .this-url {
+    top: 20px;
+}
+.shoutu-banner-nav .this-xin-shou {
+    background-image: url(../img/icon-1.png);
+}
+.shoutu-banner-nav .this-jx {
+    background-image: url(../img/icon-2.png);
+}
+.shoutu-banner-nav .this-cai-ji {
+    background-image: url(../img/icon-3.png);
+}
+.shoutu-banner-nav .this-url {
+    background-image: url(../img/icon-4.png);
+}
+.shoutu-banner-nav .this-right {
+    position: absolute;
+    left: 80px;
+    width: 194px;
+    margin-top: 22px;
+}
+.shoutu-banner-nav .this-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 26px;
+    color: #cb9604; 
+    text-align: left;
+    vertical-align: top;
+}
+.shoutu-banner-nav .this-illustrate {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 23px;
+    color: #96a3b7;
+    text-align: left;
+    vertical-align: top;
+}
+
+
+/**
+更新统计
+**/
+.shoutu-update-inform {
+    margin-top: 70px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    color: #cb9604; 
+}
+.shoutu-update-inform .this-r {
+    margin-right: 54px;
+}
+.shoutu-update-inform .this-attribute {
+    margin-right: 26px;
+}
+
+/**
+视频列表
+**/
+.shoutu-list-box {
+    width: 100%;
+    margin-top: 51px;
+    margin-bottom: 51px;
+    background: linear-gradient(358deg, #000 0, #0a0a0a 100%);
+    border: 1px solid #cb9604; 
+    box-shadow: 5px 16px 32px rgba(0,82,217,.12);
+    padding: 35px 50px 10px 50px;
+    border-radius: 10px; 
+}
+.shoutu-list-box .this-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 20px;
+    color: #cb9604; 
+}
+.shoutu-list-box .this-link div {
+    margin-right: 60px;
+    width: 25%;
+}
+.shoutu-list-box .this-link div:last-child {
+    margin-right: 0;
+}
+.shoutu-list-box .this-link .this-time {
+    width: 200px;
+}
+.shoutu-list-box .this-link .flex {
+    align-items: center;
+}
+.shoutu-list-box .this-link h5 {
+    font-size: 16px;
+    font-weight: 700;
+}
+.shoutu-list-box .this-link i {
+    flex-shrink: 0;
+    background: linear-gradient(90deg, #614c0b 0, #b38a04 100%);
+    /* box-shadow: 6px 8px 12px rgba(96,159,253,.12); */
+    color: #ffffff; 
+    font-size: 12px;
+    margin-left: 10px;
+    display: block;
+    height: 20px;
+    width: auto;
+    padding: 0 6px;
+    line-height: 20px;
+    text-align: center;
+}
+.shoutu-list-box .this-link .shoutu-pc {
+    width: 100px;
+}
+.shoutu-list-box .this-wap-name, .shoutu-list-box .this-link .flex {
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+}
+
+/**
+视频筛选
+**/
+.shoutu-type-select {
+    font-size: 14px;
+    padding: 10px 35px;
+    margin: 56px 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 1) 0%, rgba(247, 248, 252, 1) 100%); 
+    border: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: -9px 2px 28px rgba(0, 82, 217, 0.16);
+    border-radius: 10px; 
+}
+.shoutu-type-select .filter-text {
+    background: #1a1a1a; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    text-align: center;
+    line-height: 36px;
+    height: 36px;
+    border-radius: 10px; 
+    color: #cb9604; 
+}
+.shoutu-type-select .nav-swiper {
+    overflow: hidden;
+    position: relative;
+    margin: 25px 0;
+}
+.shoutu-type-select li {
+    flex-shrink: 0;
+    width: auto;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    margin: 0 6px;
+}
+.shoutu-type-select li:first-child {
+    margin-left: 60px;
+}
+.shoutu-type-select li a {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0 10px;
+    border-radius: 10px; 
+    line-height: 30px;
+    height: 30px;
+    background: #000; 
+    color: #cb9604; 
+}
+.shoutu-type-select .nav-dt {
+    background: linear-gradient(90deg, #cb9604 0, #d4af37 100%);
+}
+.shoutu-type-select .nav-dt a {
+    color: #000; 
+}
+.shoutu-vod-tabs-box {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 50px;
+}
+.shoutu-vod-tabs-box .this-right {
+    line-height: 42px;
+}
+.shoutu-vod-tabs {
+    width: 680px;
+    overflow: hidden;
+}
+.shoutu-vod-tabs a {
+    width: auto;
+    height: 42px;
+    line-height: 42px;
+    margin-right: 15px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 700;
+    background: #1a1a1a; 
+    color: #cb9604; 
+    border-radius: 10px; 
+}
+.shoutu-vod-tabs .active {
+    background: linear-gradient(90deg, #cb9604 0, #ee1f1f 100%), #da1a2d;
+    color: #ffffff;
+}
+
+/**
+影片信息
+**/
+.shoutu-detail-inform {
+    width: 100%;
+    background: linear-gradient(135deg, #000 0, #1a1a1a 100%); 
+    border: 1px solid #cb9604; 
+    box-shadow: 5px 16px 32px rgba(0,82,217,.12);
+    margin: 40px 0;
+    border-radius: 10px; 
+}
+.shoutu-detail-inform .this-left {
+    width: 254px;
+    height: 363px;
+    /* background: #1a1a1a;  */
+    margin-right: 40px;
+    border-radius: 10px; 
+}
+.shoutu-detail-inform .this-left img {
+    width: 100%;
+    height: 150px;
+    border-radius: 5px; 
+}
+.shoutu-detail-inform .this-right {
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    width: 0;
+}
+.shoutu-detail-inform .this-right span {
+    display: block;
+    font-size: 15px;
+    line-height: 22px;
+    color: #cb9604; 
+    margin: 7px 0;
+}
+.shoutu-detail-inform .this-top {
+    padding: 50px;
+}
+.shoutu-detail-inform .this-bottom {
+    width: 100%;
+    padding: 50px;
+    background: #1a1a1a; 
+    color: #cb9604; 
+    line-height: 30px;
+    font-size: 16px;
+}
+.shoutu-detail-inform .this-bottom .this-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.shoutu-detail-inform .this-bottom .this-text {
+    opacity: .4;
+}
+
+/**
+影片选集
+**/
+.shoutu-selections {
+    margin: 45px 0;
+    width: 100%;
+    border: 1px solid #cb9604; 
+    box-shadow: 5px 16px 32px rgba(0,82,217,.12);
+    background: #1a1a1a; 
+    border-radius: 10px; 
+}
+.shoutu-selections .this-title {
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    padding: 0 50px;
+}
+.shoutu-selections .this-title .this-show {
+    font-size: 16px;
+    font-weight: 700;
+    color: #cb9604; 
+}
+.shoutu-selections .this-title .this-tip {
+    font-size: 16px;
+    font-weight: 700;
+    color: #96a3b7;
+}
+.shoutu-selections .this-list {
+    background: #000; 
+    padding: 20px 20px 0 20px;
+}
+.shoutu-selections .this-list .this-li {
+    line-height: 52px;
+    margin-bottom: 10px;
+}
+.shoutu-selections .this-list .this-name {
+    display: block;
+    height: 52px;
+    line-height: 52px;
+    padding: 0 30px;
+    background: #000; 
+    box-shadow: 4px 5px 16px rgba(0,0,0,.12);
+    font-size: 15px;
+    font-weight: 700;
+    color: #cb9604; 
+    border-radius: 10px; 
+}
+.shoutu-selections .this-list .this-url {
+    cursor: pointer;
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    width: 0;
+    padding: 0 60px;
+}
+.shoutu-selections .this-list .this-link {
+    display: block;
+    height: 52px;
+    line-height: 52px;
+    position: relative;
+    overflow: hidden;
+    width: auto;
+    background: linear-gradient(90deg,#cb9604 0,#d4af37 100%);
+    box-shadow: 4px 5px 16px rgba(0,0,0,.12);
+    padding: 0 20px;
+    color: #ffffff; 
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px; 
+}
+.shoutu-selections .this-list .this-link::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+.shoutu-selections .this-list .this-link:hover::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+}
+.shoutu-selections .this-list .this-link .fa {
+    margin-right: 8px;
+}
+.shoutu-selections .this-bottom {
+    height: 100px;
+    line-height: 100px;
+    padding: 0 50px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.shoutu-selections .this-bottom .this-all .fa {
+    font-size: 22px;
+    margin-right: 10px;
+}
+.shoutu-selections .this-bottom .this-bnt {
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    border: 1px solid #cb9604; 
+    padding: 0 20px;
+    margin: 30px 0 0 20px;
+    background: #000; 
+    color: #cb9604; 
+    border-radius: 10px; 
+}
+
+/**
+播放器
+**/
+.shoutu-player-box {
+    margin-top: 40px;
+}
+.shoutu-player-box #bofang_box {
+    padding-bottom: 56%;
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px; 
+}
+.shoutu-player-box .MacPlayer {
+    position: absolute;
+    border-radius: 10px; 
+}
+
+/**
+提示框
+**/
+.msg {
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
+    animation: slide-down .5s ease-out forwards;
+}
+.msg-box-msg {
+    transition: all .3s ease;
+    border: 1px solid #cb9604; 
+    box-shadow: 5px 16px 32px rgba(0,82,217,.12);
+    background: #000; 
+    padding: 20px;
+    line-height: 1.5;
+    color: #cb9604; 
+    border-radius: 10px; 
+}
+@keyframes slide-down {
+    0% { top: -100%; }
+    100% { top: 50%; }
+}
+
+/**
+文章列表
+**/
+.shoutu-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 40px 0;
+    color: #cb9604; 
+}
+.shoutu-art-list {
+    margin: 0 -12px;
+}
+.shoutu-art-list li {
+    width: 50%;
+    padding: 12px;
+}
+.shoutu-art-list li a {
+    padding: 20px;
+    background: linear-gradient(135deg, #000 0, #1a1a1a 100%); 
+    border: .88px solid #cb9604; 
+    box-shadow: 4.4px 14.08px 28.16px rgba(0,82,217,.1);
+    border-radius: 10px; 
+    color: #cb9604; 
+}
+.shoutu-art-list li .this-pic {
+    background-color: #1a1a1a; 
+    width: 228px;
+    height: 0;
+    margin-right: 30px;
+    position: relative;
+    padding-bottom: 27%;
+    border-radius: 10px; 
+}
+.shoutu-art-list li .this-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 10px; 
+}
+.shoutu-art-list li .this-inform {
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    width: 0;
+}
+.shoutu-art-list li h5 {
+    height: 58px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    color: #cb9604; 
+}
+.shoutu-art-list li .this-blurb {
+    height: 44px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #cb9604; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 15px 0;
+}
+.shoutu-art-list li .this-button {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #cb9604; 
+}
+.shoutu-art-list li em {
+    margin-right: 15px;
+}
+
+/**
+文章详情
+**/
+.shoutu-art-title {
+    text-align: center;
+    padding: 50px 0;
+}
+.shoutu-art-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 46px;
+    margin-bottom: 15px;
+    color: #cb9604; 
+}
+.shoutu-art-title span {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 26px;
+    color: #96a3b7;
+}
+.shoutu-art-detail {
+    background: #000; 
+    border: 1px solid #cb9604; 
+    box-shadow: 4px 14px 28px rgba(0,82,217,.1);
+    padding: 64px;
+    font-size: 24px;
+    line-height: 40px;
+    color: #cb9604; 
+    border-radius: 10px; 
+}
+.shoutu-art-detail p {
+    margin: 20px 0;
+}
+
+/**
+留言列表
+**/
+.shoutu-gbook .this-left {
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    width: 0;
+}
+.shoutu-gbook .count-bg {
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../img/user.jpg);
+    border-radius: 10px; 
+}
+.shoutu-gbook .msg-list {
+    margin-left: 50px;
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    width: 0;
+}
+.shoutu-gbook .msg-item {
+    margin-bottom: 50px;
+}
+.shoutu-gbook .msg-reply {
+    position: relative;
+    padding: 20px 35px;
+    background: linear-gradient(145.2deg, #000 0, #1a1a1a 100%); 
+    box-shadow: 5px 5px 33px rgba(0,82,217,.12);
+    border-radius: 10px; 
+    color: #cb9604; 
+}
+.shoutu-gbook .msg-arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 15px 15px 0;
+    position: absolute;
+    top: 15px;
+    left: -15px;
+    border-color: transparent #cb9604 transparent transparent; 
+}
+.shoutu-gbook .msg-title {
+    line-height: 26px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #cb9604; 
+}
+.shoutu-gbook .msg-title .time {
+    color: #96a3b7;
+    font-weight: 400;
+}
+.shoutu-gbook .msg-cont {
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    color: #cb9604; 
+}
+.shoutu-gbook .reply-answer {
+    background: #1a1a1a; 
+    border: 1px solid rgba(0,82,217,.12);
+    padding: 20px 35px;
+    color: #cb9604; 
+    margin-top: 30px;
+}
+.shoutu-gbook .reply-answer .msg-title .time {
+    color: #cb9604; 
+}
+
+/**
+留言输入框
+**/
+.shoutu-gbook .this-right {
+    width: 320px;
+    margin-left: 52px;
+}
+.shoutu-gbook .this-right .this-box {
+    padding: 32px 21px;
+    background: linear-gradient(135deg, #000 0, #1a1a1a 100%); 
+    border: 1px solid #cb9604; 
+    box-shadow: 4px 14px 28px rgba(0,82,217,.1);
+    border-radius: 10px; 
+    color: #cb9604; 
+}
+.shoutu-gbook .this-right .msg-tit {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+}
+.shoutu-gbook .this-right .msg-cue {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    color: #cb9604; 
+}
+.shoutu-gbook .this-right .gbook-content {
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+    height: 120px;
+    background: #1a1a1a; 
+    border: 1px solid #cb9604; 
+    margin: 10px 0;
+    border-radius: 10px; 
+    color: #cb9604; 
+}
+.shoutu-gbook .this-right .msg-code {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    color: #cb9604; 
+}
+.shoutu-gbook .this-right .mac-verify {
+    width: 50px;
+    height: 24px;
+    background: #1a1a1a; 
+    border: 1px solid #cb9604; 
+    border-radius: 10px; 
+}
+.shoutu-gbook .this-right .gbook-submit {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-size: 15px;
+    font-weight: 700;
+    width: 124px;
+    height: 42px;
+    background: linear-gradient(90deg, #cb9604 0, #d4af37 100%);
+    box-shadow: 4px 5px 16px rgba(0,0,0,.12);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 32px 10px 32px;
+    color: #000; 
+    margin: 20px auto;
+    border-radius: 10px; 
+}
+
+/**
+留言公共
+**/
+.shoutu-gbook-tip {
+    width: 100%;
+    background: linear-gradient(135deg,#000 0,#1a1a1a 100%); 
+    border: 1px solid #cb9604; 
+    box-shadow: 4px 14px 28px rgba(0,82,217,.12);
+    padding: 50px 64px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 10px; 
+    color: #cb9604; 
+}
+
+/**
+空列表
+**/
+.null {
+    text-align: center;
+    line-height: 40px;
+    margin: 50px 0;
+    color: #cb9604; 
+}
+
+/**
+弹窗
+**/
+.shoutu-window {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin: 0 auto;
+    animation: slide-down .5s ease-out forwards;
+}
+.shoutu-window .this-box {
+    width: 488px;
+    background: url(../img/banner.jpg);
+    padding: 40px 0;
+    border-radius: 10px; 
+}
+.shoutu-window .this-content {
+    width: 90%;
+    margin: auto;
+    background: linear-gradient(135deg, rgba(255,255,255,0) 0,#cb9604 100%);
+    border: 1px solid #cb9604; 
+    box-shadow: 5px 16px 32px rgba(0,82,217,.12);
+    backdrop-filter: blur(25px);
+    text-align: center;
+    padding: 28px;
+    position: relative;
+    border-radius: 10px; 
+}
+.shoutu-window .this-content .this-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34px;
+    color: #000; 
+}
+.shoutu-window .this-content .icon-close {
+    position: absolute;
+    right: 30px;
+    top: 38px;
+    color: #cb9604; 
+}
+.shoutu-window .this-content .this-txt {
+    margin-top: 35px;
+    font-size: 16px;
+    line-height: 23px;
+    color: #000; 
+}
+.shoutu-window .this-seize {
+    height: 35px;
+}
+.shoutu-ok {
+    display: block;
+    height: 52px;
+    line-height: 52px;
+    background: linear-gradient(90deg, #cb9604 0, #d4af37 100%);
+    box-shadow: 6px 8px 12px rgba(96,159,253,.12);
+    color: #000; 
+    padding: 0 30px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px; 
+}
+.shoutu-window-bj {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 999;
+    background-color: rgba(0,0,0,.4);
+    transition: .3s;
+}
+
+/* From Uiverse.io by cssbuttons-io */
+button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+button.learn-more {
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    background: #000; 
+    color: #cb9604; 
+    border-radius: 10px; 
+}
+button.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #cb9604; 
+    border-radius: 1.625rem;
+}
+button.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #000; 
+}
+button.learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+button.learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #000; 
+    border-right: 0.125rem solid #000; 
+    transform: rotate(45deg);
+}
+button.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #cb9604; 
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+button:hover .circle {
+    width: 100%;
+}
+button:hover .circle .icon.arrow {
+    background: #000; 
+    transform: translate(1rem, 0);
+}
+button:hover .button-text {
+    color: #000; 
+}
+
+@media (max-width: 767px) {
+    body {
+        background-color: rgba(0, 0, 0, 1); 
+    }
+
+    /**
+    页头移动端
+    **/
+    .shoutu-pc {
+        display: none !important;
+    }
+    .shoutu-wap {
+        display: block !important;
+    }
+    .shoutu-header {
+        width: 100%;
+        min-width: auto;
+        height: auto;
+        padding: 0;
+        background: #1a1a1a; 
+        border-radius: 10px; 
+    }
+    .shoutu-header .shoutu-this-right-box {
+        padding: 0 20px;
+    }
+    .shoutu-box-width {
+        width: auto;
+        padding: 0 20px;
+        overflow: hidden;
+    }
+    .shoutu-header .shoutu-this-right-box form {
+        -ms-flex: 1 0 0%;
+        flex: 1 0 0%;
+        width: 0;
+        background: #000; 
+        border: 1px solid #cb9604; 
+        border-radius: 10px; 
+    }
+    .shoutu-header .shoutu-this-link {
+        margin-left: 12px;
+    }
+
+    .shoutu-hearer-b {
+        width: 100%;
+        height: 52px;
+        line-height: 52px;
+        background: #000; 
+        font-size: 20px;
+        font-weight: 700;
+        color: #cb9604; 
+        padding-left: 20px;
+        border-radius: 10px; 
+    }
+
+    .shoutu-hearer-c {
+        width: 100%;
+        height: 52px;
+        line-height: 52px;
+        background: #000; 
+        font-size: 16px;
+        font-weight: 700;
+        color: #cb9604; 
+        padding: 0 20px;
+        display: flex !important;
+        border-radius: 10px; 
+    }
+    .shoutu-hearer-c .this-center {
+        -ms-flex: 1 0 0%;
+        flex: 1 0 0%;
+        width: 0;
+        text-align: center;
+        padding: 0 20px;
+    }
+    .shoutu-hearer-c .fa {
+        font-size: 18px;
+    }
+
+    /**
+    导航菜单移动端
+    **/
+    .menu-container {
+        overflow: hidden;
+        padding-left: 20px;
+    }
+    .shoutu-nav-item {
+        width: auto;
+        display: block;
+        line-height: 40px;
+        height: 40px;
+        margin-right: 20px;
+        background: #1a1a1a; 
+        border-radius: 10px; 
+    }
+    .shoutu-nav-item.current {
+        border-bottom: 4px solid #cb9604; 
+    }
+    .shoutu-nav-item.current a {
+        color: #cb9604; 
+    }
+
+    /**
+    banner移动端
+    **/
+    .shoutu-banner {
+        height: 200px;
+    }
+    .shoutu-banner .this-left, .shoutu-banner .this-qq-tg, .shoutu-banner .this-right, .shoutu-banner .this-title-box span {
+        display: none;
+    }
+    .shoutu-banner .shoutu-box-width {
+        height: 100%;
+        margin: 0;
+        width: 100%;
+    }
+    .shoutu-banner .this-title-box h2 {
+        width: 100%;
+        height: auto;
+        font-size: 16px;
+        line-height: 23px;
+    }
+    .shoutu-banner .this-qq-bnt {
+        height: 30px;
+        width: 119px !important;
+        font-size: 12px;
+        line-height: 30px;
+    }
+    .shoutu-banner .this-title-box {
+        position: absolute;
+        left: 20px;
+        top: 22%;
+        width: 50%;
+        z-index: 22;
+    }
+    .shoutu-banner .this-bnt {
+        margin-top: 10px;
+    }
+    .shoutu-banner .this-img {
+        width: 152px;
+        height: 152px;
+    }
+    .shoutu-banner-nav {
+        margin-top: 20px;
+    }
+    .shoutu-banner-nav .shoutu-box-width {
+        flex-wrap: wrap;
+    }
+    .shoutu-banner-nav a {
+        width: 48%;
+        height: 67px;
+        margin-bottom: 12px;
+    }
+    .shoutu-banner-nav .this-cai-ji, .shoutu-banner-nav .this-jx, .shoutu-banner-nav .this-url, .shoutu-banner-nav .this-xin-shou {
+        left: 14px;
+        top: 18px;
+        width: 30px;
+        height: 30px;
+    }
+    .shoutu-banner-nav .this-right {
+        left: 55px;
+        right: 14px;
+        width: auto;
+        margin-top: 16px;
+    }
+    .shoutu-banner-nav .this-title {
+        font-size: 13px;
+        line-height: 18px;
+    }
+    .shoutu-banner-nav .this-illustrate {
+        font-size: 11px;
+        line-height: 15px;
+    }
+
+    /**
+    每日统计移动端
+    **/
+    .shoutu-update-inform {
+        margin-top: 18px;
+        font-size: 16px;
+        line-height: 23px;
+        color: #cb9604; 
+    }
+    .shoutu-update-inform .this-attribute {
+        margin-right: 10px;
+    }
+    .shoutu-update-inform .this-r {
+        margin-right: 25px;
+    }
+
+    /**
+    视频列表移动端
+    **/
+    .shoutu-list-box {
+        margin-top: 20px;
+        margin-bottom: 38px;
+        padding: 20px 15px 10px 15px;
+    }
+    .shoutu-list-box .this-link .this-wap-name {
+        -ms-flex: 1 0 0%;
+        flex: 1 0 0%;
+        width: 0;
+    }
+    .shoutu-list-box .this-link .this-wap-time {
+        width: 71px;
+    }
+    .shoutu-list-box .this-link {
+        font-size: 15px;
+        margin-bottom: 15px;
+        line-height: 22px;
+    }
+    .shoutu-list-box .this-link h5 {
+        font-size: 15px;
+    }
+    .shoutu-list-box .this-link i {
+        font-size: 11px;
+        margin-left: 10px;
+        height: 16px;
+        padding: 0 4px;
+        line-height: 16px;
+    }
+
+    /**
+    页脚移动端
+    **/
+    .shoutu-foot .this-top, .shoutu-foot {
+        margin-top: 20px;
+    }
+    .shoutu-foot .this-title {
+        font-size: 15px;
+        margin-bottom: 15px;
+        color: #cb9604; 
+    }
+    .shoutu-foot .this-bottom {
+        font-size: 13px;
+        line-height: 18px;
+        margin-top: 20px;
+        border-top: 1px solid #e5e5e5;
+        padding-top: 26px;
+        padding-bottom: 24px;
+    }
+
+    /**
+    底部菜单移动端
+    **/
+    .shoutu-bar {
+        background-color: #000; 
+        position: fixed;
+        z-index: 99;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 62px;
+        text-align: center;
+        display: flex !important;
+        border-radius: 10px; 
+    }
+    .shoutu-bar span {
+        display: block;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 15px;
+        color: #cb9604; 
+    }
+    .shoutu-bar .fa {
+        font-size: 17px;
+        margin-bottom: 7px;
+        margin-top: 14px;
+    }
+    .shoutu-bar .on span {
+        color: #cb9604; 
+    }
+
+    /**
+    视频筛选移动端
+    **/
+    .shoutu-type-select {
+        font-size: 12px;
+        padding: 10px 20px;
+        margin: 20px 0;
+        background: #1a1a1a; 
+        border-radius: 10px; 
+    }
+    .shoutu-type-select .nav-swiper {
+        margin: 15px 0;
+    }
+    .shoutu-type-select li a {
+        padding: 0 6px;
+        border-radius: 10px; 
+        line-height: 24px;
+        height: 24px;
+        margin: 0;
+        background: #000; 
+        color: #cb9604; 
+    }
+    .shoutu-type-select .filter-text {
+        line-height: 24px;
+        height: 24px;
+        background: #1a1a1a; 
+        color: #cb9604; 
+    }
+    .shoutu-type-select li:first-child {
+        margin-left: 40px;
+    }
+    .shoutu-vod-tabs-box {
+        margin-top: 20px;
+    }
+    .shoutu-vod-tabs-box .this-right {
+        display: none;
+    }
+    .shoutu-vod-tabs {
+        width: 100%;
+    }
+    .shoutu-vod-tabs a {
+        height: 38px;
+        line-height: 38px;
+        margin-right: 10px;
+        padding: 0 15px;
+        font-size: 14px;
+        background: #1a1a1a; 
+        color: #cb9604; 
+        border-radius: 10px; 
+    }
+
+    /**
+    详情页
+    **/
+    .shoutu-detail-inform .this-top {
+        padding: 15px;
+    }
+    .shoutu-detail-inform .this-left {
+        width: 107px;
+        height: 153px;
+        margin-right: 16px;
+    }
+    .shoutu-detail-inform .this-right span {
+        font-size: 13px;
+        line-height: 20px;
+        margin: 5px 0;
+    }
+    .shoutu-detail-inform .this-bottom .this-title {
+        display: none;
+    }
+    .shoutu-detail-inform .this-bottom {
+        padding: 15px;
+        line-height: 20px;
+        font-size: 13px;
+    }
+    .shoutu-selections .this-title {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 15px;
+    }
+    .shoutu-selections .this-title .this-show, .shoutu-selections .this-title .this-tip {
+        font-size: 13px;
+    }
+    .shoutu-selections .this-list {
+        padding: 15px 15px 5px 15px;
+    }
+    .shoutu-selections .this-list .this-li {
+        line-height: 40px;
+        margin-bottom: 0;
+    }
+    .shoutu-selections .this-list .this-name {
+        height: 29px;
+        line-height: 29px;
+        padding: 0 10px;
+        font-size: 13px;
+        background: #000; 
+        color: #cb9604; 
+    }
+    .shoutu-selections .this-list .this-link {
+        height: 30px;
+        line-height: 30px;
+        width: 110px;
+        padding: 0 10px;
+        font-size: 13px;
+        background: linear-gradient(90deg,#cb9604 0,#d4af37 100%);
+        color: #000; 
+    }
+    .shoutu-selections .this-list .this-li .flex {
+        justify-content: space-between;
+    }
+    .shoutu-selections .this-list .this-li .shoutu-wap {
+        font-size: 11px;
+        color: #cb9604; 
+    }
+    .shoutu-detail-inform, .shoutu-selections {
+        margin: 20px 0;
+    }
+    .shoutu-selections .this-bottom {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 15px;
+        font-size: 12px;
+    }
+    .shoutu-selections .this-bottom .this-bnt {
+        display: block;
+        height: 22px;
+        line-height: 22px;
+        padding: 0;
+        margin: 10px 0 0 10px;
+        width: 47px;
+        text-align: center;
+    }
+
+    /**
+    播放器
+    **/
+    .shoutu-player-box {
+        margin-top: 20px;
+    }
+
+    /**
+    文章列表
+    **/
+    .art-heading {
+        margin-top: 20px;
+    }
+    .shoutu-art-list li {
+        width: 100%;
+    }
+    .shoutu-art-list li a {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+    .shoutu-art-list li .this-pic {
+        width: 100%;
+        margin-right: 0;
+        padding-bottom: 55%;
+    }
+    .shoutu-art-list li .this-inform {
+        -ms-flex: revert;
+        flex: revert;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .shoutu-art-list li h5 {
+        height: 47px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 23px;
+        color: #cb9604; 
+    }
+    .shoutu-art-list li .this-blurb {
+        height: 38px;
+        font-size: 13px;
+        line-height: 18px;
+        margin: 5px 0;
+    }
+    .shoutu-art-list li .this-button {
+        font-size: 12px;
+        line-height: 18px;
+        color: #cb9604; 
+    }
+
+    /**
+    文章详情
+    **/
+    .shoutu-art-title {
+        text-align: center;
+        padding: 20px 0;
+    }
+    .shoutu-art-detail {
+        padding: 20px;
+        font-size: 15px;
+        line-height: 21px;
+        color: #cb9604; 
+    }
+    .shoutu-art-title h2 {
+        font-size: 20px;
+        line-height: 28px;
+        height: auto;
+        color: #cb9604; 
+    }
+    .shoutu-art-title span {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    /**
+    留言页
+    **/
+    .shoutu-gbook-tip {
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        line-height: 22px;
+        font-size: 15px;
+        background: linear-gradient(135deg,#000 0,#1a1a1a 100%); 
+        color: #cb9604; 
+    }
+    .shoutu-gbook {
+        display: block;
+    }
+    .shoutu-gbook .this-left, .shoutu-gbook .this-right {
+        width: 100%;
+    }
+    .shoutu-gbook .count-bg {
+        width: 32px;
+        height: 32px;
+    }
+    .shoutu-gbook .msg-list {
+        margin-left: 23px;
+    }
+    .shoutu-gbook .msg-reply {
+        padding: 10px;
+    }
+    .shoutu-gbook .msg-title {
+        line-height: 18px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #cb9604; 
+    }
+    .shoutu-gbook .msg-cont {
+        font-size: 11px;
+        line-height: 16px;
+        color: #cb9604; 
+    }
+    .shoutu-gbook .msg-item {
+        margin-bottom: 30px;
+    }
+    .shoutu-gbook .reply-answer {
+        margin-top: 10px;
+        padding: 10px;
+        background: #1a1a1a; 
+        color: #cb9604; 
+    }
+    .shoutu-gbook .msg-arrow {
+        border-width: 5px 8px 8px 0;
+        top: 10px;
+        left: -10px;
+    }
+    .shoutu-gbook .reply-answer .msg-title .time {
+        color: #cb9604; 
+    }
+    .shoutu-gbook .this-right {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    .shoutu-gbook .this-right .this-box {
+        padding: 10px;
+        color: #cb9604; 
+    }
+    .shoutu-gbook .this-right .msg-tit {
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .shoutu-gbook .this-right .msg-cue {
+        font-size: 13px;
+        line-height: 18px;
+    }
+    .shoutu-gbook .this-right .gbook-content {
+        height: 80px;
+        margin: 10px 0;
+        font-size: 12px;
+        line-height: 16px;
+        color: #cb9604; 
+    }
+    .shoutu-gbook .this-right .gbook-submit {
+        width: 80px;
+        height: 32px;
+        line-height: 32px;
+        margin: 20px auto;
+        font-size: 14px;
+    }
+}

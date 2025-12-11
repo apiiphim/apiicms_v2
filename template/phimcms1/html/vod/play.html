@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/include"}
+    <title>Watch movie {$obj.vod_name} {$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']} - Watch Full HD Vietsub quality - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']} Watch online for free,{$obj.vod_name}" />
+    <meta name="description" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']} Watch online for free,{$obj.vod_name}" />
+</head>
+<body>
+{include file="public/head" head="3" title="$obj.vod_name"}
+<div class="shoutu-box-width">
+    <!-- Player -->
+    <div class="shoutu-player-box" id="detail-box">
+        <div id="bofang_box">
+            {$player_data}
+            {$player_js}
+        </div>
+    </div>
+    <!-- Player -->
+    <div class="shoutu-detail-inform shoutu-pc">
+        <div class="this-bottom">
+            <span class="this-title">Content</span>
+            <div class="this-text">
+                {$obj.vod_content|mac_filter_html}
+            </div>
+        </div>
+    </div>
+    {include file="vod/selections"}
+</div>
+{include file="public/foot" bar="1"}
+</body>
+</html>

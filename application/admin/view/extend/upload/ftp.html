@@ -1,0 +1,32 @@
+<div class="layui-form-item upload_mode mode_Ftp" {if condition="$config['upload']['mode'] neq 'Ftp'"}style="display:none;" {/if}>
+<label class="layui-form-label">FTP Storage:</label>
+<div class="layui-input-block">
+    <a href="javascript:;" target="_blank" class="layui-btn layui-btn-primary">Please confirm that FTP can connect normally</a>
+</div>
+</div>
+<div class="layui-form-item upload_mode mode_Ftp" {if condition="$config['upload']['mode'] neq 'Ftp'"}style="display:none;" {/if}>
+<label class="layui-form-label">Server:</label>
+<div class="layui-input-inline w200">
+    <input type="text" name="upload[api][ftp][host]" placeholder="IP or domain" value="{$config['upload']['api']['ftp']['host']}" class="layui-input" >
+</div>
+<label class="layui-form-label">Port:</label>
+<div class="layui-input-inline w100">
+    <input type="text" name="upload[api][ftp][port]" placeholder="Port number" value="{$config['upload']['api']['ftp']['port']}" class="layui-input" >
+</div>
+<label class="layui-form-label">Account:</label>
+<div class="layui-input-inline w100">
+    <input type="text" name="upload[api][ftp][user]" placeholder="FTP account" value="{$config['upload']['api']['ftp']['user']}" class="layui-input" >
+</div>
+<label class="layui-form-label">Password:</label>
+<div class="layui-input-inline w100">
+    <input type="text" name="upload[api][ftp][pwd]" placeholder="FTP password" value="{$config['upload']['api']['ftp']['pwd']}" class="layui-input" >
+</div>
+<label class="layui-form-label">Path:</label>
+<div class="layui-input-inline w100">
+    <input type="text" name="upload[api][ftp][path]" placeholder="Website root path" value="{$config['upload']['api']['ftp']['path']}" class="layui-input" >
+</div>
+<label class="layui-form-label">External URL:</label>
+<div class="layui-input-inline w200">
+    <input type="text" name="upload[api][ftp][url]" placeholder="External URL" value="{$config['upload']['api']['ftp']['url']}" class="layui-input" >
+</div>
+</div>

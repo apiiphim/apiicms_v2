@@ -1,0 +1,1 @@
+Bật tiện ích mở rộng của php "com_dotnet" để hệ thống lấy được thông tin hệ thống

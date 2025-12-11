@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/include"}
+    <title>Kết quả tìm kiếm {$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class} - {$maccms.site_name}</title>
+    <meta name="keywords" content="Kết quả tìm kiếm {$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}" />
+    <meta name="description" content="Kết quả tìm kiếm {$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}" />
+</head>
+<body>
+{include file="public/head" head="2" title="kết quả tìm kiếm"}
+<div class="shoutu-box-width">
+    <div class="shoutu-list-box">
+        <ul>
+            <li>
+                <a class="this-link flex" href="javascript:" title="tiêu đề">
+                    <div class="this-wap-name" style="font-weight: bold; color: white;">Tên video</div>
+                    <div class="shoutu-pc" style="font-weight: bold; width: auto; color: white;">Quốc gia</div>
+                    <div class="shoutu-pc" style="font-weight: bold; color: white;">Thể loại</div>
+                    <div class="this-wap-time this-time" style="font-weight: bold; color: white;">Thời gian cập nhật</div>
+                </a>
+            </li>
+            {maccms:vod num="20" paging="yes" pageurl="vod/search" order="desc" by="time"}
+            <li>
+                <a class="this-link flex" href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}">
+                    <div class="this-wap-name flex"><p>{$vo.vod_name}</p><i>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}Hoàn thành{/if}</i></div>
+                    <div class="shoutu-pc" style=" width: auto;">{$vo.vod_area|mac_default='Không xác định'}</div>
+                    <div class="shoutu-pc">{$vo.type.type_name|mac_default=$vo.type_1.type_name}</div>
+                    <div class="this-wap-time this-time">{$vo.vod_time|mk_porn_time}</div>
+                </a>
+            </li>
+            {/maccms:vod}
+        </ul>
+    </div>
+    {include file="public/paging"}
+</div>
+{include file="public/foot" bar="1"}
+</body>
+</html>

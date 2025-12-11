@@ -1,0 +1,28 @@
+<div class="layui-form-item upload_mode mode_Uomg" {if condition="$config['upload']['mode'] neq 'Uomg'"}style="display:none;" {/if}>
+<label class="layui-form-label">Youqi Mengtu Bed:</label>
+<div class="layui-input-block">
+    <a href="http://api.uomg.com/" target="_blank" class="layui-btn layui-btn-primary">No application required at this time http://api.uomg.com/</a>
+</div>
+</div>
+<div class="layui-form-item upload_mode mode_Uomg" {if condition="$config['upload']['mode'] neq 'Uomg'"}style="display:none;" {/if}>
+<label class="layui-form-label">OPENID：</label>
+<div class="layui-input-inline w200">
+    <input type="text" name="upload[api][uomg][openid]" placeholder="" value="{$config['upload']['api']['uomg']['openid']}" class="layui-input"  >
+</div>
+<label class="layui-form-label">Operator name:</label>
+<div class="layui-input-inline w200">
+    <input type="text" name="upload[api][uomg][key]" placeholder="" value="{$config['upload']['api']['uomg']['key']}" class="layui-input"  >
+</div>
+<label class="layui-form-label">type:</label>
+<div class="layui-input-inline w200">
+    <select class="w150" name="upload[api][uomg][type]">
+        <option value="ali" {if condition="$config['upload']['api']['uomg']['type'] eq 'ali'"}selected {/if}>Alibaba</option>
+        <option value="baidu" {if condition="$config['upload']['api']['uomg']['type'] eq 'baidu'"}selected {/if}>Baidu Image Recognition</option>
+        <option value="sina" {if condition="$config['upload']['api']['uomg']['type'] eq 'sina'"}selected {/if}>Sina Weibo</option>
+        <option value="sogou" {if condition="$config['upload']['api']['uomg']['type'] eq 'sogou'"}selected {/if}>Sogou Images</option>
+        <option value="juejin" {if condition="$config['upload']['api']['uomg']['type'] eq 'juejin'"}selected {/if}>Juejin Community</option>
+        <option value="360" {if condition="$config['upload']['api']['uomg']['type'] eq '360'"}selected {/if}>Qihoo 360</option>
+        <option value="jd" {if condition="$config['upload']['api']['uomg']['type'] eq 'jd'"}selected {/if}>JD Mall</option>
+    </select>
+</div>
+</div>

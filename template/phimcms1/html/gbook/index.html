@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/include"}
+    <title>留言板 - {$maccms.site_name}</title>
+</head>
+<body>
+{include file="public/head" head="2" title="留言板"}
+<div class="shoutu-box-width">
+    <div class="shoutu-gbook-tip">
+        不要重复求片,求片之前请检查所求影片在豆瓣上的别名确认网站上是否已经上片<br>
+        请按照格式求片<br>
+        【电视剧求片格式:】<br>
+        《电视剧:大宋宫词 年份:2021 地区:中国 导演:李少红》<br>
+        【电影求片格式:】<br>
+        《电影:功夫 年份:2004 地区:中国 导演:周星驰》<br>
+        【动漫求片格式:】<br>
+        《动漫:斗破苍穹第四季 年代:2021 豆瓣ID：34851198或者具体参考资料链接》注:无参考资料的不予更新<br>
+        【综艺求片格式:】<br>
+        《综艺:吐槽大会 第五季 地区:2021 豆瓣ID：35236741或者具体参考资料链接》注:无参考资料的不予更新未按照格式求片的一律按故意刷留言处理,不予更新！
+    </div>
+    <div class="shoutu-gbook flex">
+        <div class="this-left">
+            {maccms:gbook num="10" paging="yes" order="desc" by="id"}
+            <div class="msg-item flex">
+                <div class="msg-tag">
+                    <div class="count-bg"></div>
+                </div>
+                <div class="msg-list">
+                    <div class="msg-reply">
+                        <div class="msg-arrow"></div>
+                        <div class="msg-title flex between">
+                            <a class="name" href="javascript:">{$vo.gbook_name}</a>
+                            <span class="time">{$vo.gbook_time|date='Y-m-d H:i:s',###}</span>
+                        </div>
+                        <div class="msg-cont">
+                            {$vo.gbook_content}
+                        </div>
+                    </div>
+                    {if condition="$vo.gbook_reply_time gt 0"}
+                    <div class="reply-answer">
+                        <div class="msg-title flex between">
+                            站长已回复
+                            <span class="time">{$vo.gbook_reply_time|date='Y-m-d H:i:s',###}</span>
+                        </div>
+                        <div class="msg-cont">
+                            {$vo.gbook_reply}
+                        </div>
+                    </div>
+                    {/if}
+                </div>
+            </div>
+            {/maccms:gbook}
+        </div>
+        <div class="this-right">
+            <div class="this-box">
+                <div class="msg-tit">求片留言</div>
+                <p class="msg-cue">请输入留言内容</p>
+                <form class="gbook-form">
+                    <textarea class="gbook-content" name="gbook_content"></textarea>
+                    <div class="msg-code">
+                        {if condition="$gbook.verify eq 1"}
+                        验证码  <input type="text" name="verify" class="mac-verify">
+                        <img style="display:none" class="verify-img" src="/index.php/verify/index.html?" title="看不清楚? 换一张！">
+                        {/if}
+                        <div class="remaining-w">还可输入<span class="gbook-remaining" >200</span></div>
+                    </div>
+                    <input type="button" class="gbook-submit" value="提交留言">
+                </form>
+            </div>
+        </div>
+    </div>
+    {include file="public/paging"}
+</div>
+<script>Gbook_Init();</script>
+{include file="public/foot" bar="1"}
+</body>
+</html>

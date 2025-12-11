@@ -1,0 +1,45 @@
+<div class="block search-con mt15 mb30">
+    <div class="res">
+        <h1>{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}</h1>
+        <p>Danh sách phim"{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}", hiện có <span class="mac_total active"></span> phim</p>
+    </div>
+    <ul>
+        {maccms:vod num="10" paging="yes" pageurl="vod/search" order="desc" by="time"}
+        <li>
+            <div class="pic">
+                <a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}"><img class="lazyload" data-src="{:mac_url_img($vo.vod_pic)}" src="{$maccms.path_tpl}assets/loading.jpg" alt="{$vo.vod_name}">
+                        </a>
+            </div>
+            <div class="info">
+                <p>
+                    <a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}">
+                        {$vo.vod_name}
+                    </a>
+                </p>
+                <p>
+                    <span><a href="{:mac_url_type($obj.type_id,['id'=>$vo['type_id']],'show')}" title="{if$vo.type_1!=''}{$vo.type_1.type_name}{else}{$vo.type.type_name}{/if}">
+						 {if$vo.type_1!=''}{$vo.type_1.type_name}{else}{$vo.type.type_name}{/if}</a><a href="{:mac_url_type($vo.type.type_id,['id'=>$vo['type_id'],'year'=>$vo['vod_year']],'show')}">{$vo.vod_year|mac_default='Không rõ'}</a>
+				    </span>
+					{if $vo.vod_class!=''}
+					<span>{maccms:foreach name=":explode(',',$vo.vod_class)" id="vo2" key="key2"}
+					<a href="{:mac_url_type($vo.type.type_id,['id'=>$vo['type_id'],'class'=>$vo2],'show')}" title="{$vo2}">{$vo2}</a>
+					{/maccms:foreach}</span>
+					{/if}
+					{if condition="$vo.vod_score>5"}
+					<span class="vod_score">{$vo.vod_score}</span>
+					{/if}
+                </p>
+                <p>
+                    {if condition="$vo.vod_play_from"}
+                    <span><a href="{:mac_url_vod_play($vo)}" title="立刻播放{$vo.vod_name}"><i class="iconfont icon-bofang"></i>Xem ngay</a></span>
+                     {else/}
+                    <span><a href="javascript:;"><i class="iconfont icon-bofang"></i>Chưa có nguồn phim</a></span>
+                    {/if}
+                </p>
+            </div>
+            <div class="state">
+                <span>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}Hoàn thành{/if}{if date('Y-m-d')==date('Y-m-d',$vo.vod_time)}<b class="tag-new"></b>{/if}</span></div>
+        </li>
+        {/maccms:vod} 
+    </ul>
+</div>

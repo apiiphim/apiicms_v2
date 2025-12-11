@@ -1,0 +1,52 @@
+{include file="public/head" head="2" title="Trang chuyên mục"}
+<div class="shoutu-box-width">
+  <!--视频筛选-->
+  <div class="shoutu-vod-tabs-box flex between">
+    <div class=" nav-swiper shoutu-vod-tabs">
+      <div class="swiper-wrapper">
+        <a class="art-heading swiper-slide{if$obj.type_pid==''} active{/if}" href="{if$obj.type_pid==''}javascript:void(0){else/}{:mac_url_type($obj['parent'],['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'version'=>$param['version'],'state'=>$param['state'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}{/if}">Tất cả</a>
+        {if$obj.parent.childids}
+        {maccms:type ids="'.$GLOBALS['type_pid'].'" order="asc" by="sort"}
+        {maccms:type parent="'.$vo['type_id'].'" order="asc" by="sort" id="vo1" key="key1"}
+        <a class="art-heading swiper-slide{if$vo1['type_id']==$obj['type_id']} active{/if}" href="{:mac_url_type($vo1,[],'show')}">{$vo1.type_name}</a>
+        {/maccms:type}
+        {/maccms:type}
+        {else}
+        {maccms:type ids="'.$GLOBALS['type_id'].'" order="asc" by="sort"}
+        {maccms:type parent="'.$vo['type_id'].'" order="asc" by="sort" id="vo1" key="key1"}
+        <a class="art-heading swiper-slide{if$vo1['type_id']==$obj['type_id']} active{/if}" href="{:mac_url_type($vo1,[],'show')}">{$vo1.type_name}</a>
+        {/maccms:type}
+        {/maccms:type}
+        {/if}
+      </div>
+    </div>
+    <div class="this-right">
+      Cập nhật hôm nay: {:mac_data_count($obj.type_id,'today','vod')}&nbsp;&nbsp;&nbsp;&nbsp;Tất cả tài nguyên: {:mac_data_count($obj.type_id,'all','vod')}
+    </div>
+  </div>
+  <!--视频筛选-->
+  <div class="shoutu-list-box">
+    <ul>
+      <li>
+        <a class="this-link flex" href="javascript:" title="tiêu đề">
+          <div class="this-wap-name" style="font-weight: bold; color: white;">Tên video</div>
+          <div class="shoutu-pc" style="font-weight: bold;  width: auto; color: white;">Quốc gia</div>
+          <div class="shoutu-pc" style="font-weight: bold; color: white;">Thể loại</div>
+          <div class="this-wap-time this-time" style="font-weight: bold; color: white;">Thời gian cập nhật</div>
+        </a>
+      </li>
+      {maccms:vod num="20" paging="yes" pageurl="vod/show" type="current" order="desc" by="time"}
+      <li>
+        <a class="this-link flex" href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}">
+          <div class="this-wap-name flex"><p>{$vo.vod_name}</p><i>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}Hoàn thành{/if}</i></div>
+          <div class="shoutu-pc"  style=" width: auto;">{$vo.vod_area|mac_default='Không xác định'}</div>
+          <div class="shoutu-pc">{$vo.type.type_name|mac_default=$vo.type_1.type_name}</div>
+          <div class="this-wap-time this-time">{$vo.vod_time|mk_porn_time}</div>
+        </a>
+      </li>
+      {/maccms:vod}
+    </ul>
+  </div>
+  {include file="public/paging"}
+</div>
+{include file="public/foot" bar="1"}
